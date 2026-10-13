@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet Lilo, my sister's dog, and try the interactive Lilo quiz.">
+    <title>Lilo - My Sister's Dog</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header" id="top">
+        <nav class="menu" aria-label="Main navigation">
+            <a href="#lilo">Lilo</a>
+            <a href="#about">About Lilo</a>
+            <a href="#signup">Sign Up</a>
+            <a href="#interactive">Interactive</a>
+        </nav>
+        <div class="hero">
+            <p class="eyebrow">Get to know Lilo</p>
+            <h1>Get to know <span class="name">Lilo</span>.</h1>
+            <p>A page about my sister's dog, to try out functions of CSS, JS and DOM.</p>
+            <a class="visit-button" href="#about">Get to know Lilo</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="lilo" class="card">
+            <h2>This is my sister's dog</h2>
+            <p>Her name is <strong class="name">Lilo</strong>.</p>
+            <img class="dog-photo" src="IMG_0346.thumbnail.jpg" alt="Lilo, my sister's dog">
+            <p><a class="visit-button" href="https://steffimitffuni.github.io/MyFirstWebApp/" target="_blank"
+                    rel="noopener noreferrer">To see how far this Website has come look at the first draft here</a></p>
+            <p id="photoCaption" class="feedback" aria-live="polite">This is Lilo.</p>
+        </section>
+
+        <section id="about" class="card">
+            <h2>About Lilo</h2>
+            <p>Lilo is a lovely dog. Explore the page to learn a little more about her!</p>
+            <div class="fact-box">
+                <span class="fact-icon" aria-hidden="true">🐾</span>
+                <div>
+                    <h3>Lilo fact</h3>
+                    <p id="factText">Click the button to reveal a little Lilo fact.</p>
+                </div>
+            </div>
+            <button type="button" id="factButton">Show a fact</button>
+        </section>
+        <section id="meet-dog" class="card">
+            <h2>Meet a Random Dog!</h2>
+            <p>Click below to discover a dog from the API.</p>
+
+            <button type="button" id="dogButton">
+                Find a Dog
+            </button>
+
+            <p id="dogMessage" class="feedback" role="status">
+                Click the button to meet a dog!
+            </p>
+
+            <div id="dogDetails" hidden>
+                <h3 id="dogName"></h3>
+
+                <img id="randomDog" class="dog-photo" alt="Random dog from the FreeAPI">
+
+                <p><strong>Breed group:</strong> <span id="dogBreed"></span></p>
+                <p><strong>Temperament:</strong> <span id="dogTemperament"></span></p>
+                <p><strong>Life span:</strong> <span id="dogLifespan"></span></p>
+                <p><strong>Weight:</strong> <span id="dogWeight"></span></p>
+            </div>
+        </section>
+        <section id="signup" class="card">
+            <h2>Stay in the loop</h2>
+            <p>Your E-Mail will be stored on a database on supabase which will be deleted after this module is over and
+                graded.</p>
+            <form id="signupForm">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+                <label class="checkbox-label" for="dogUpdates">
+                    <input type="checkbox" id="dogUpdates" name="dogUpdates">
+                    I'd like occasional Lilo updates
+                </label>
+                <button type="submit">Sign up</button>
+            </form>
+            <p id="message" class="feedback" role="status" aria-live="polite"></p>
+        </section>
+
+        <section id="interactive" class="card">
+            <h2>Interactive Lilo</h2>
+            <p>Answer the questions below and see what Lilo has to say.</p>
+
+            <div class="interactive-item">
+                <h3>1. How many walks a day would you do with Lilo?</h3>
+                <form id="walkForm">
+                    <label for="walks">Number of walks</label>
+                    <input type="number" id="walks" name="walks" min="1" max="20" step="1" placeholder="Enter a number"
+                        required>
+                    <button type="submit">Ask Lilo</button>
+                </form>
+                <p id="walkMessage" class="feedback" role="status" aria-live="polite"></p>
+            </div>
+
+            <div class="interactive-item">
+                <h3>2. Do you think Lilo gets along with other dogs?</h3>
+                <div class="button-row">
+                    <button type="button" class="answer-button" data-answer="yes">Yes</button>
+                    <button type="button" class="answer-button" data-answer="no">No</button>
+                </div>
+                <p id="quizMessage" class="feedback" role="status" aria-live="polite"></p>
+            </div>
+
+            <div class="interactive-item">
+                <h3>3. Name Lilo's best friend</h3>
+                <form id="friendForm">
+                    <label for="friendName">What would you name Lilo's best friend?</label>
+                    <input type="text" id="friendName" name="friendName" placeholder="Enter a name" maxlength="40"
+                        required>
+                    <button type="submit">Submit name</button>
+                </form>
+                <p id="friendMessage" class="feedback" role="status" aria-live="polite"></p>
+            </div>
+
+            <button type="button" id="resetButton" class="secondary-button">Reset interactive answers</button>
+        </section>
+    </main>
+
+    <footer>
+        <a href="#top">Back to top ↑</a>
+    </footer>
+</body>
+
+</html>
