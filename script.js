@@ -242,3 +242,68 @@ getElement("dogButton").addEventListener("click", async () => {
         button.disabled = false;
     }
 });
+
+$(document).ready(function () {
+
+    // Add a button below the About Lilo heading
+    $("#about h2").after(
+        '<button type="button" id="toggleAbout">Hide Lilo facts ▲</button>'
+    );
+
+    // Put the existing content into a container
+    $("#about").children()
+        .not("h2, #toggleAbout")
+        .wrapAll('<div id="aboutContent"></div>');
+
+    // Open and close the content
+    $("#toggleAbout").on("click", function () {
+
+        $("#aboutContent").slideToggle(400);
+
+        if ($(this).text().includes("Hide")) {
+            $(this).text("Show Lilo facts ▼");
+        } else {
+            $(this).text("Hide Lilo facts ▲");
+        }
+
+    });
+
+});
+// 
+$(document).ready(function () {
+
+    // Create the floating button
+    $("body").append(
+        '<button type="button" id="backToLilo">Back to Lilo</button>'
+    );
+
+    // Position and style the button
+    $("#backToLilo").css({
+        position: "fixed",
+        bottom: "25px",
+        right: "25px",
+        "z-index": "1000",
+        display: "none"
+    });
+
+    // Show or hide the button while scrolling
+    $(window).on("scroll", function () {
+
+        if ($(window).scrollTop() > 300) {
+            $("#backToLilo").fadeIn(400);
+        } else {
+            $("#backToLilo").fadeOut(400);
+        }
+
+    });
+
+    // Scroll to Lilo's photo
+    $("#backToLilo").on("click", function () {
+
+        $("html, body").animate({
+            scrollTop: $("#lilo").offset().top
+        }, 600);
+
+    });
+
+});
